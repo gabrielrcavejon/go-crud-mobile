@@ -1,10 +1,10 @@
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const TOKEN_KEY = "TokenJWT";
+export const TOKEN_JWT = "TokenJWT";
 
 const api = axios.create({
-  baseURL: "https://127.0.0.1:3000",
+  baseURL: "http://192.168.0.37:3000/",
   timeout: 10000,
   headers: {
     "Content-Type": "application/json",
@@ -13,7 +13,7 @@ const api = axios.create({
 
 // adiciona token automaticamente
 api.interceptors.request.use(async (config) => {
-  const token = await AsyncStorage.getItem(TOKEN_KEY);
+  const token = await AsyncStorage.getItem(TOKEN_JWT);
 
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
