@@ -3,6 +3,7 @@ import LoginScreen from "../screens/LoginScreen";
 import HomeScreen from "../screens/HomeScreen";
 import { useAuth } from "../context/AuthContext";
 import { ActivityIndicator, StyleSheet, View } from "react-native";
+import ProdutosScreen from "../screens/ProdutosScreen";
 
 export type AuthStackLista = {
   Login: undefined;
@@ -10,6 +11,7 @@ export type AuthStackLista = {
 
 export type AppStackLista = {
   Home: undefined;
+  Produtos: undefined;
 };
 
 const AuthStack = createNativeStackNavigator<AuthStackLista>();
@@ -26,6 +28,7 @@ const AuthRoutes = () => (
 const ApplicationRoutes = () => (
   <AppStack.Navigator screenOptions={{ headerShown: true }}>
     <AppStack.Screen name="Home" component={HomeScreen} />
+    <AppStack.Screen name="Produtos" component={ProdutosScreen} />
   </AppStack.Navigator>
 );
 
